@@ -70,18 +70,18 @@ def arithmetic_mean_filter(image, kernel_size=3):
     return filtered_image
 
 def preprocess(img):
-    red= img[0][0,:,:]
-    green= img[0][1,:,:]
-    blue= img[0][2,:,:]
+    red= img[:,0,:,:]
+    green= img[:,1,:,:]
+    blue= img[:,2,:,:]
 
     # blank_canvas = torch.zeros_like(red)
     # RG = torch.stack([red,green,blank_canvas],dim=0).unsqueeze(0)
     # RB = torch.stack([red,blank_canvas,blue],dim=0).unsqueeze(0)
     # GB = torch.stack([blank_canvas,green,blue],dim=0).unsqueeze(0)
     
-    RG = torch.stack([red,green],dim=0).unsqueeze(0)
-    RB = torch.stack([red,blue],dim=0).unsqueeze(0)
-    GB = torch.stack([green,blue],dim=0).unsqueeze(0)
+    RG = torch.stack([red,green],dim=1)
+    RB = torch.stack([red,blue],dim=1)
+    GB = torch.stack([green,blue],dim=1)
     #print(RG.shape)
 
     return RG,RB,GB
