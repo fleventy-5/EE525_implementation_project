@@ -33,7 +33,7 @@ class CustomImageDataset(Dataset):
 
 def load_data(train_path, label_path):
     data_transforms = v2.Compose([
-        v2.Resize(size=(64,64)),
+        v2.Resize(size=(120,180)),
         #v2.RandomCrop(size=(32, 32)),
         # v2.Resize(size=(64,64)),
         v2.ToTensor()
